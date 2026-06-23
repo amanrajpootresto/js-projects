@@ -1,0 +1,14 @@
+/* main.css */
+
+@import "./variables.css";
+@import "./reset.css";
+@import "./base.css";
+@import "./layout.css";
+
+@import "./components/card.css";
+@import "./components/button.css";
+@import "./components/transaction.css";
+
+@import "./pages/dashboard.css";
+
+@import "./utilities.css";

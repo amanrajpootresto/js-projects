@@ -1,0 +1,359 @@
+/* layout.css */
+
+/* ========================================================
+   PAGE
+   ======================================================== */
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--color-page);
+}
+
+.page__main {
+  min-width: 0;
+  padding-block: var(--space-8);
+}
+
+.page__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.page__title-group {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* ========================================================
+   CONTAINERS
+   ======================================================== */
+
+.container {
+  width: min(
+    calc(100% - (var(--space-4) * 2)),
+    var(--container-xl)
+  );
+  margin-inline: auto;
+}
+
+.container--small {
+  max-width: var(--container-sm);
+}
+
+.container--medium {
+  max-width: var(--container-md);
+}
+
+.container--large {
+  max-width: var(--container-lg);
+}
+
+.container--wide {
+  max-width: var(--container-2xl);
+}
+
+.content-container {
+  width: min(
+    calc(100% - (var(--space-4) * 2)),
+    var(--content-width)
+  );
+  margin-inline: auto;
+}
+
+/* ========================================================
+   SECTIONS
+   ======================================================== */
+
+.section {
+  padding-block: clamp(var(--space-12), 8vw, var(--space-24));
+}
+
+.section--small {
+  padding-block: var(--space-8);
+}
+
+.section--large {
+  padding-block: clamp(var(--space-16), 12vw, 8rem);
+}
+
+/* ========================================================
+   APP SHELL
+   Sidebar + main content.
+   ======================================================== */
+
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.app-shell__sidebar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+
+  padding: var(--space-6);
+
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.app-shell__content {
+  min-width: 0;
+}
+
+.app-shell__header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  min-height: var(--header-height);
+  padding-inline: clamp(var(--space-4), 4vw, var(--space-8));
+
+  background: color-mix(
+    in srgb,
+    var(--color-page) 88%,
+    transparent
+  );
+
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(16px);
+}
+
+.app-shell__main {
+  min-width: 0;
+  padding: clamp(var(--space-4), 4vw, var(--space-8));
+}
+
+/* ========================================================
+   STACK
+   Vertically spaces child elements.
+   ======================================================== */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack > * {
+  margin-block: 0;
+}
+
+.stack--1 {
+  gap: var(--space-1);
+}
+
+.stack--2 {
+  gap: var(--space-2);
+}
+
+.stack--3 {
+  gap: var(--space-3);
+}
+
+.stack--4 {
+  gap: var(--space-4);
+}
+
+.stack--6 {
+  gap: var(--space-6);
+}
+
+.stack--8 {
+  gap: var(--space-8);
+}
+
+.stack--12 {
+  gap: var(--space-12);
+}
+
+/* ========================================================
+   CLUSTER
+   Horizontal grouping that wraps naturally.
+   Useful for buttons, filters and navigation.
+   ======================================================== */
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cluster--between {
+  justify-content: space-between;
+}
+
+.cluster--center {
+  justify-content: center;
+}
+
+.cluster--end {
+  justify-content: flex-end;
+}
+
+/* ========================================================
+   GRID
+   ======================================================== */
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/*
+ * Automatically creates as many columns as will fit.
+ * Good for cards and dashboards.
+ */
+.grid--auto {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 17rem), 1fr)
+  );
+}
+
+/* ========================================================
+   SPLIT LAYOUT
+   Content and secondary panel.
+   ======================================================== */
+
+.split-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 25rem);
+  gap: clamp(var(--space-6), 5vw, var(--space-12));
+  align-items: start;
+}
+
+/* ========================================================
+   CENTERING
+   ======================================================== */
+
+.center {
+  display: grid;
+  min-height: inherit;
+  place-items: center;
+}
+
+.center-content {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+/* ========================================================
+   FULL-BLEED CONTENT
+   Used when content must extend outside a normal container.
+   ======================================================== */
+
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+/* ========================================================
+   STICKY CONTENT
+   ======================================================== */
+
+.sticky-panel {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+}
+
+/* ========================================================
+   RESPONSIVE BEHAVIOR
+   ======================================================== */
+
+@media (max-width: 64rem) {
+  .grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sticky-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 48rem) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell__sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: var(--z-modal);
+
+    width: min(85vw, var(--sidebar-width));
+
+    visibility: hidden;
+    transform: translateX(-100%);
+
+    box-shadow: var(--shadow-lg);
+
+    transition:
+      transform var(--duration-normal) var(--ease-standard),
+      visibility var(--duration-normal);
+  }
+
+  /*
+   * Add data-sidebar-open="true" to .app-shell
+   * when the mobile sidebar is open.
+   */
+  .app-shell[data-sidebar-open="true"] .app-shell__sidebar {
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .page__header {
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 48.01rem) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 48rem) {
+  .desktop-only {
+    display: none !important;
+  }
+}

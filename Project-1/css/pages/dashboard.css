@@ -1,0 +1,61 @@
+/* pages/dashboard.css */
+
+.dashboard {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.dashboard__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.dashboard__welcome {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.dashboard__summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.dashboard__content {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(17rem, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.summary-card__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.summary-card__value {
+  margin-top: var(--space-2);
+
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.035em;
+}
+
+@media (max-width: 64rem) {
+  .dashboard__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 48rem) {
+  .dashboard__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .dashboard__summary {
+    grid-template-columns: 1fr;
+  }
+}

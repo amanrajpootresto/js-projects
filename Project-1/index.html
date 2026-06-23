@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="main page">
+        <header>
+            <div class="page-header">
+                Welcome, <span id="username"></span>
+            </div>
+            <h1>Expense Tracker</h1>
+
+            <div class="page__title-group">
+                Income, <span id="income"></span>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div class="filter">
+
+            </div>
+            <div class="transaction-list-container">
+                <ul id="transaction-list" class="transaction-list">
+                    <li class="transaction-item">
+                        <div class="transaction-info">
+                            <div class="top">
+                                <h3>
+                                    235
+                                </h3>
+                                <span id="category">
+                                    Groceries
+                                </span>
+                            </div>
+                            <div class="middle">
+                                Transaction Title
+                            </div>
+                            <div class="bottom">
+                                <span>
+                                    12/12/2023
+                                </span>
+                                <button class="details-btn">Details</button>
+                            </div>
+                        </div>
+                    </li>
+
+                     <li class="transaction-item">
+              <div class="transaction-info">
+                <div class="transaction-top">
+                  <h3 class="transaction-amount">
+                    ₹235
+                  </h3>
+
+                  <span class="transaction-category">
+                    Groceries
+                  </span>
+                </div>
+
+                <div class="transaction-middle">
+                  <h4 class="transaction-title">
+                    Transaction Title
+                  </h4>
+                </div>
+
+                <div class="transaction-bottom">
+                  <time
+                    class="transaction-date"
+                    datetime="2023-12-12"
+                  >
+                    12/12/2023
+                  </time>
+
+                  <button
+                    type="button"
+                    class="button button--secondary button--small"
+                  >
+                    Details
+                  </button>
+                </div>
+              </div>
+            </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src = "js/main.js"></script>
+    <script src = 'js/renderer.js'></script>
+    <script src= 'js/storage.js'></script>
+</body>
+</html>

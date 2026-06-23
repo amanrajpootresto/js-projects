@@ -1,0 +1,195 @@
+/* reset.css */
+
+/* Use predictable width calculations everywhere. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default document spacing. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Improve text rendering and prevent unwanted mobile text scaling. */
+html {
+  min-width: 20rem;
+  min-height: 100%;
+  tab-size: 4;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Give the application full viewport height. */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Remove default margins from common text elements. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Preserve normal list behavior unless the list is explicitly structural. */
+ul[role="list"],
+ol[role="list"] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Make media responsive by default. */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Prevent images from stretching beyond their natural ratio. */
+img,
+video {
+  height: auto;
+}
+
+/* Inherit typography inside form controls. */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+/* Avoid inconsistent button rendering. */
+button {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+/* Show pointer only when a button is usable. */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+
+/* Communicate disabled state consistently. */
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+}
+
+/* Keep textareas usable. */
+textarea {
+  resize: vertical;
+}
+
+/* Prevent fieldsets from adding unexpected sizing. */
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Normalize tables. */
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+/* Links inherit surrounding typography by default. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Make long content wrap instead of breaking layouts. */
+p,
+li,
+dd,
+blockquote,
+figcaption,
+a,
+button {
+  overflow-wrap: break-word;
+}
+
+/* Ensure the React root can fill the screen. */
+#root,
+#__next {
+  min-height: 100vh;
+  min-height: 100dvh;
+  isolation: isolate;
+}
+
+/* Improve default dialog behavior. */
+dialog {
+  max-width: calc(100% - 2rem);
+  max-height: calc(100% - 2rem);
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+}
+
+/* Standard modal background. */
+dialog::backdrop {
+  background: var(--color-overlay, rgb(0 0 0 / 55%));
+}
+
+/* Keep hidden elements hidden. */
+[hidden] {
+  display: none !important;
+}
+
+/* Visible keyboard focus without affecting mouse clicks. */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus, currentColor);
+  outline-offset: 3px;
+}
+
+/* Respect user accessibility preferences. */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

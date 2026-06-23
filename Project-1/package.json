@@ -1,0 +1,22 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "expense tracker project in js",
+  "keywords": [
+    "expense",
+    "tracker",
+    "js",
+    "javascript",
+    "practice"
+  ],
+  "license": "ISC",
+  "author": "Aman Rajpoot",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1"
+  }
+}

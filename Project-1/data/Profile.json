@@ -1,0 +1,33 @@
+{
+    "personalInfo": {
+        "firstName": "Aman",
+    "lastName": "Rajpoot",
+    "email": "amanrajpoot5612@gmail.com"
+    },
+    "income": {
+        "value": 100000,
+        "currency": "INR"
+    },
+    "transactions": [
+        {
+    "_id": "c13c2f6a-d9a7-409b-b9a6-877c751d2da4",
+    "type": "DairyProduct",
+    "title": "Milk",
+    "amount": 37,
+    "category": "Grocerry",
+    "date": "2026-06-23T07:35:36.187Z",
+    "location": "Jayanti Departmental Store",
+    "createdAt": "2026-06-23T07:35:36.187Z"
+},
+{
+    "_id": "a24d3g7b-e0b8-410c-c0b7-988d862e3eb5",
+    "type": "DairyProduct",
+    "title": "Milk",
+    "amount": 37,
+    "category": "Grocerry",
+    "date": "2026-06-23T07:35:36.187Z",
+    "location": "Jayanti Departmental Store",
+    "createdAt": "2026-06-23T07:35:36.187Z"
+}
+    ]
+}
