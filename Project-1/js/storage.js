@@ -70,7 +70,8 @@ async function initializeStorage(){
 
     const initialData = await fetchInitialData();
 
-    saveJSON(STORAGE_KEYS.profile, initialData);
+    saveJSON(STORAGE_KEYS.profile, initialData.profile);
+    saveJSON(STORAGE_KEYS.transactions, initialData.transactions);
 
     if(!Response.ok){
         throw new Error(
