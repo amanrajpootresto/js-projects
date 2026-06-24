@@ -13,7 +13,6 @@ const income = document.getElementById('income');
 //     .then(data => {
 //         income.innerText = data.income.value + ' ' + data.income.currency;
 //     })
-=
 
 const transactionList = document.getElementById('transaction-list');
 
