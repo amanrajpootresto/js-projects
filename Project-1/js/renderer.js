@@ -1,21 +1,21 @@
+
+import {STORAGE_KEYS} from './storage.js'
 const username = document.getElementById('username');
 
-fetch('./data/Profile.json').then(response => response.json()).then(data => {
-    username.innerText = data.personalInfo.firstName + ' ' + data.personalInfo.lastName;
-})
+// fetch('./data/Profile.json').then(response => response.json()).then(data => {
+//     username.innerText = data.personalInfo.firstName + ' ' + data.personalInfo.lastName;
+// })
 
 const income = document.getElementById('income');
 
-fetch('./data/Profile.json')
-    .then(response => response.json())
-    .then(data => {
-        income.innerText = data.income.value + ' ' + data.income.currency;
-    })
+// fetch('./data/Profile.json')
+//     .then(response => response.json())
+//     .then(data => {
+//         income.innerText = data.income.value + ' ' + data.income.currency;
+//     })
 
 
 const transactionList = document.getElementById('transaction-list');
-
-
 
 function createTransactionItem(transaction){
 
@@ -87,7 +87,37 @@ function createTransactionItem(transaction){
 
 }
 
-fetch('./data/Profile.json').then(response => response.json())
+function renderUsingStorage (){
+    try {
+        const profile = localStorage.getItem(STORAGE_KEYS?.profile)
+        const transactions = localStorage.getItem(STORAGE_KEYS?.transactions)
+
+        console.log("profile", profile);
+        console.log("transactions", transactions);
+
+        if(profile && transactions){
+
+            const transactionsData = JSON.parse(transactions)
+            const profileData = JSON.parse(profile)
+
+            console.log("transactionsData", transactionsData);
+            console.log("profileData", profileData);
+
+            transactionsData.forEach((transactions) => {
+                    const transactionItem = createTransactionItem(transactions);
+                    transactionList.appendChild(transactionItem);
+            })
+        }
+
+    } catch (error) {
+        console.log("error loading the storage data", error)
+        renderUsingJSON()
+    }
+}
+
+function renderUsingJSON (){
+try {
+    fetch('./data/Profile.json').then(response => response.json())
     .then(data => {
         console.log(data.transactions);
         const transactions = data?.transactions || [];
@@ -96,3 +126,10 @@ fetch('./data/Profile.json').then(response => response.json())
             transactionList.appendChild(transactionItem);
         });
     })
+} catch (error) {
+    console.log("error loading the json file")
+}
+}
+
+export { renderUsingJSON, renderUsingStorage};
+

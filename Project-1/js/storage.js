@@ -3,7 +3,9 @@ const STORAGE_KEYS = Object.freeze({
     transactions: 'expenseTracker.transactions.v1'
 })
 
-console.log('storage.js loaded: STORAGE_KEYS initialized');
+
+// console.log('storage.js loaded: STORAGE_KEYS initialized');
+
 
 // fetch initial data from profile.json and save it to localstorage
 async function fetchInitialData(){
@@ -57,7 +59,6 @@ function getAppData(){
 }
 
 // load profile.json when localstorage is not initialized
-
 async function initializeStorage(){
     const profileExists = localStorage.getItem(STORAGE_KEYS.profile) !== null;
 
@@ -80,38 +81,37 @@ async function initializeStorage(){
     }
 }
 
+// Match local storage data with json DATA
+function matchStorageWithJSON(){
+    const JSONData = fetch('./data/Profile.json')
+    // console.log("JSONData", JSONData)
+    .then(response => response.json())
+    .then((data) => {
 
+        // console.log("data", data)
 
+        const profile = data?.profile
+        const transactions = data?.transactions
+        
+        // console.log("profile", profile)
+        // console.log("transactions", transactions)
 
-// Read and parse JSON data
-
-function readJSON(key, fallbackValue){
-    console.log(`readJSON: reading key=${key}`);
-    try {
-        const storedValue = localStorage.getItem(key);
-
-        if(storedValue === null){
-            console.log(`readJSON: key=${key} not found, returning fallback`);
-            return fallbackValue
-        };
-
-        const parsedValue = JSON.parse(storedValue);
-        console.log(`readJSON: parsed value for key=${key}`, parsedValue);
-        return parsedValue;
-    } catch (error) {
-        console.error(`Unable to read ${key} from localstorage:`, error);
-
-        return fallbackValue;
-    }
+        
+    })
+    .catch(error => {
+    console.error(error);
+});
 }
+
+matchStorageWithJSON()
 
 // const data = await Response.json();
+//     const response = getAppData();
+//     console.log('main: getAppData response', response);
+//     if(!response){
+//     console.log('main: response missing, initialising storage');
+//     initializeStorage()
+// }
 
 
-const response = getAppData();
-console.log('main: getAppData response', response);
-if(!response){
-    console.log('main: response missing, initialising storage');
-    initializeStorage()
-}
-
+export {STORAGE_KEYS, getAppData, initializeStorage};

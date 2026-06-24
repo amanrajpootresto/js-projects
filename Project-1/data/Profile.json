@@ -28,6 +28,26 @@
     "date": "2026-06-23T07:35:36.187Z",
     "location": "Jayanti Departmental Store",
     "createdAt": "2026-06-23T07:35:36.187Z"
-}
+},
+{
+    "_id": "b35e4h8c-f1c9-421d-d1c8-099e973f4fc6",
+    "type": "FoodProduct",
+    "title": "Bread",
+    "amount": 45,
+    "category": "Grocery",
+    "date": "2026-06-23T08:10:20.000Z",
+    "location": "Fresh Mart",
+    "createdAt": "2026-06-23T08:10:20.000Z"
+  },
+  {
+    "_id": "c46f5i9d-a2d0-432e-e2d9-100f084g5gd7",
+    "type": "Transportation",
+    "title": "Metro Ticket",
+    "amount": 60,
+    "category": "Travel",
+    "date": "2026-06-23T09:15:40.000Z",
+    "location": "Noida Metro Station",
+    "createdAt": "2026-06-23T09:15:40.000Z"
+  }
     ]
 }
