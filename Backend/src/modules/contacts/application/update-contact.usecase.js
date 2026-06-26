@@ -1,4 +1,4 @@
-import { AppError } from "../../../shared/errors/AppError.js";
+import { AppError, ERROR_CODES } from "../../../shared/errors/AppError.js";
 
 export class UpdateContactUseCase {
   constructor(contactRepository) {
@@ -9,7 +9,8 @@ export class UpdateContactUseCase {
     if (Object.hasOwn(input, "phone")) {
       throw new AppError(
         "Phone number cannot be changed",
-        400
+        400,
+        ERROR_CODES.CONTACT_PHONE_IMMUTABLE
       );
     }
 
@@ -17,7 +18,11 @@ export class UpdateContactUseCase {
       await this.contactRepository.findById(id);
 
     if (!contact) {
-      throw new AppError("Contact not found", 404);
+      throw new AppError(
+        "Contact not found",
+        404,
+        ERROR_CODES.CONTACT_NOT_FOUND
+      );
     }
 
     contact.updateNames({

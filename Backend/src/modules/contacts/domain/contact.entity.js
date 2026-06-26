@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { AppError } from "../../../shared/errors/AppError.js";
+import { AppError, ERROR_CODES } from "../../../shared/errors/AppError.js";
 
 export class Contact {
   #phone;
@@ -40,7 +40,8 @@ export class Contact {
     if (!valueChanged) {
       throw new AppError(
         "Provide firstName or lastName to update",
-        400
+        400,
+        ERROR_CODES.CONTACT_UPDATE_NO_FIELDS
       );
     }
 
@@ -49,7 +50,11 @@ export class Contact {
 
   #validateFirstName(firstName) {
     if (typeof firstName !== "string" || !firstName.trim()) {
-      throw new AppError("First name is required", 400);
+      throw new AppError(
+        "First name is required",
+        400,
+        ERROR_CODES.CONTACT_FIRST_NAME_REQUIRED
+      );
     }
 
     const normalizedFirstName = firstName.trim();
@@ -57,7 +62,8 @@ export class Contact {
     if (normalizedFirstName.length > 50) {
       throw new AppError(
         "First name cannot exceed 50 characters",
-        400
+        400,
+        ERROR_CODES.CONTACT_FIRST_NAME_TOO_LONG
       );
     }
 
@@ -74,7 +80,11 @@ export class Contact {
     }
 
     if (typeof lastName !== "string") {
-      throw new AppError("Last name must be a string", 400);
+      throw new AppError(
+        "Last name must be a string",
+        400,
+        ERROR_CODES.CONTACT_LAST_NAME_MUST_BE_STRING
+      );
     }
 
     const normalizedLastName = lastName.trim();
@@ -82,7 +92,8 @@ export class Contact {
     if (normalizedLastName.length > 50) {
       throw new AppError(
         "Last name cannot exceed 50 characters",
-        400
+        400,
+        ERROR_CODES.CONTACT_LAST_NAME_TOO_LONG
       );
     }
 
@@ -91,7 +102,11 @@ export class Contact {
 
   #validatePhone(phone) {
     if (typeof phone !== "string" || !phone.trim()) {
-      throw new AppError("Phone number is required", 400);
+      throw new AppError(
+        "Phone number is required",
+        400,
+        ERROR_CODES.CONTACT_PHONE_REQUIRED
+      );
     }
 
     const normalizedPhone = phone
@@ -103,7 +118,8 @@ export class Contact {
     if (!validPhonePattern.test(normalizedPhone)) {
       throw new AppError(
         "Phone number must contain 7 to 15 digits",
-        400
+        400,
+        ERROR_CODES.CONTACT_PHONE_INVALID
       );
     }
 

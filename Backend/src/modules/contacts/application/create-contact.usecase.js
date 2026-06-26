@@ -1,5 +1,5 @@
 import { Contact } from "../domain/contact.entity.js";
-import { AppError } from "../../../shared/errors/AppError.js";
+import { AppError, ERROR_CODES } from "../../../shared/errors/AppError.js";
 
 export class CreateContactUseCase {
   constructor(contactRepository) {
@@ -21,7 +21,8 @@ export class CreateContactUseCase {
     if (existingContact) {
       throw new AppError(
         "A contact with this phone number already exists",
-        409
+        409,
+        ERROR_CODES.CONTACT_DUPLICATE_PHONE
       );
     }
 
